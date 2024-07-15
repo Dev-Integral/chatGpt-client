@@ -20,6 +20,7 @@ module.exports = {
         "dark-primary": "#B4B4B4",
         "dark-primary-100": "#ECECEC",
         "dark-secondary": "#2f2f2f",
+        "dark-grey": "#212121",
       },
     },
   },

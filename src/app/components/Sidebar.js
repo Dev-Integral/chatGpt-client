@@ -10,25 +10,25 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
       <div className="flex justify-between items-center">
         <button
           title="close sidebar"
-          className="text-dark-primary hover:bg-[#212121] p-2 rounded-lg"
+          className="text-dark-primary hover:bg-dark-grey p-2 rounded-lg"
         >
-          <LuPanelLeftClose size={22} className="hover:bg-[#212121]" />
+          <LuPanelLeftClose size={22} className="hover:bg-dark-grey" />
         </button>
         <button
           title="New Chat"
-          className="text-dark-primary hover:bg-[#212121] h-full p-2 rounded-lg"
+          className="text-dark-primary hover:bg-dark-grey h-full p-2 rounded-lg"
         >
           <FaPenToSquare size={18} className="hover:text-dark-primary-100 " />
         </button>
       </div>
       <div
-        className="flex justify-between items-center mt-3 h-10 p-3 rounded-lg hover:bg-[#212121]"
+        className="flex justify-between items-center mt-3 h-10 p-3 rounded-lg hover:bg-dark-grey"
         onMouseEnter={() => setNewChatIcon(true)}
         onMouseLeave={() => setNewChatIcon(false)}
       >
         <div className="flex items-center gap-3 text-dark-primary">
           <svg
-            className="rounded-full border border-dark-primary p-1"
+            className="rounded-full border border-dark-secondary p-1"
             width="24"
             height="24"
             viewBox="0 0 41 41"
@@ -49,7 +49,7 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
           </button>
         )}
       </div>
-      <div className="flex justify-between items-center cursor-pointer mt-3 h-10 p-3 rounded-lg hover:bg-[#212121]">
+      <div className="flex justify-between items-center cursor-pointer mt-3 h-10 p-3 rounded-lg hover:bg-dark-grey">
         <div className="flex items-center gap-3">
           <RiApps2Line />
           <p className="text-dark-primary-100    text-sm ">Explore GPTs</p>

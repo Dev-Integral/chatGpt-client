@@ -21,10 +21,10 @@ export const Navbar = () => {
         </div>
       ) : (
         <div>
-          <button className="bg-dark-primary-100 text-dark-secondary px-2 py-1 font-semibold rounded-full">
+          <button className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full">
             Log in
           </button>
-          <button className="text-dark-primary-100  border border-dark-secondary px-2 py-1 ml-3 font-semibold rounded-full">
+          <button className="text-dark-primary-100 text-center border border-dark-secondary px-2 py-1 ml-3 font-semibold rounded-full">
             Sign up
           </button>
         </div>

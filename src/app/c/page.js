@@ -7,9 +7,10 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
 import HomeTextArea from "../components/HomeTextArea";
+import { EmptyChat } from "./EmptyChat";
 
 export default function page() {
-  const [newChatIcon, setNewChatIcon] = useState(false);
+  const [newChatIcon, setNewChatIcon] = useState(true);
   const [currentGPTEngine, setCurrentGPTEngine] = useState("ChatGPT");
   return (
     <main className="h-screen flex">
@@ -19,14 +20,16 @@ export default function page() {
         currentGPTEngine={currentGPTEngine}
         setCurrentGPTEngine={setCurrentGPTEngine}
       />
-
-      <section className="w-6/6 md:w-full relative bg-[#212121]">
+      <section className="md:w-full relative bg-dark-grey">
         <Navbar />
-        
-        <div className="w-4/6">
+        <div className="w-5/6 mx-auto h-[75%]">
+          {newChatIcon ? (
+            <EmptyChat />
+          ) : (
+            <div className="border m-6 mt-0 h-full border"></div>
+          )}
           <HomeTextArea width={"w-5/6"} />
         </div>
-        
       </section>
     </main>
   );
