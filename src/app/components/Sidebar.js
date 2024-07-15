@@ -3,7 +3,6 @@ import React from "react";
 import { LuPanelLeftClose } from "react-icons/lu";
 import { FaPenToSquare } from "react-icons/fa6";
 import { RiApps2Line } from "react-icons/ri";
-import { useState } from "react";
 
 export default function Sidebar({ newChatIcon, setNewChatIcon }) {
   return (
@@ -11,15 +10,15 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
       <div className="flex justify-between items-center">
         <button
           title="close sidebar"
-          className="text-[#b4b4b4] hover:bg-[#212121] p-2 rounded-lg"
+          className="text-dark-primary hover:bg-[#212121] p-2 rounded-lg"
         >
           <LuPanelLeftClose size={22} className="hover:bg-[#212121]" />
         </button>
         <button
           title="New Chat"
-          className="text-[#b4b4b4] hover:bg-[#212121] h-full p-2 rounded-lg"
+          className="text-dark-primary hover:bg-[#212121] h-full p-2 rounded-lg"
         >
-          <FaPenToSquare size={18} className="hover:text-[#ececec] " />
+          <FaPenToSquare size={18} className="hover:text-dark-primary-100 " />
         </button>
       </div>
       <div
@@ -27,9 +26,9 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
         onMouseEnter={() => setNewChatIcon(true)}
         onMouseLeave={() => setNewChatIcon(false)}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 text-dark-primary">
           <svg
-            className="rounded-full border border-[#ececec] p-1"
+            className="rounded-full border border-dark-primary p-1"
             width="24"
             height="24"
             viewBox="0 0 41 41"
@@ -42,18 +41,18 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
               fill="currentColor"
             ></path>
           </svg>
-          <p className="text-[#ececec] text-sm">ChatGPT</p>
+          <p className="text-dark-primary-100 text-sm">ChatGPT</p>
         </div>
         {newChatIcon && (
           <button title="New Chat">
-            <FaPenToSquare className="hover:text-[#ececec] text-[#b4b4b4]" />
+            <FaPenToSquare className="hover:text-dark-primary-100 text-dark-primary" />
           </button>
         )}
       </div>
       <div className="flex justify-between items-center cursor-pointer mt-3 h-10 p-3 rounded-lg hover:bg-[#212121]">
         <div className="flex items-center gap-3">
           <RiApps2Line />
-          <p className="text-[#ececec] text-sm ">Explore GPTs</p>
+          <p className="text-dark-primary-100    text-sm ">Explore GPTs</p>
         </div>
       </div>
     </aside>
