@@ -17,8 +17,6 @@ export default function Home() {
     />
   </Head>;
 
-  const [newChatIcon, setNewChatIcon] = useState(false);
-  const [currentGPTEngine, setCurrentGPTEngine] = useState("ChatGPT");
   return (
     <main className="h-screen flex">
       <section className="w-4/6 md:w-full mx-auto relative bg-dark-grey pl-2 pr-2">

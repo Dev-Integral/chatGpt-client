@@ -3,8 +3,10 @@ import React from "react";
 import { LuPanelLeftClose } from "react-icons/lu";
 import { FaPenToSquare } from "react-icons/fa6";
 import { RiApps2Line } from "react-icons/ri";
+import { useSelectedChat } from "../gptContexts/selectedChat";
 
 export default function Sidebar({ newChatIcon, setNewChatIcon }) {
+  const [selectedChat, setSelectedChat] = useSelectedChat();
   return (
     <aside className="w-2/6 md:w-[320px] p-2 bg-[#171717]">
       <div className="flex justify-between items-center">
@@ -18,7 +20,7 @@ export default function Sidebar({ newChatIcon, setNewChatIcon }) {
           title="New Chat"
           className="text-dark-primary hover:bg-dark-grey h-full p-2 rounded-lg"
         >
-          <FaPenToSquare size={18} className="hover:text-dark-primary-100 " />
+          <FaPenToSquare size={18} className="hover:text-dark-primary-100 " onClick={setSelectedChat("")} />
         </button>
       </div>
       <div

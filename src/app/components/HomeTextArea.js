@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { FaArrowUp } from "react-icons/fa6";
 import { IoIosAttach } from "react-icons/io";
+import { useCurrentEngine } from "../gptContexts/chatEngine";
 
 export default function HomeTextArea({width}) {
-  const [currentGPTEngine] = useState("ChatGPT");
+  const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine();
+
   return (
     <div className="absolute bottom-0 left-0 right-0 pl-8 pr-8">
           <div className={"relative mx-auto " + width}>

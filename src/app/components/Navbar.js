@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { FaChevronDown, FaPenToSquare, FaUserNinja } from "react-icons/fa6";
@@ -21,9 +22,11 @@ export const Navbar = () => {
         </div>
       ) : (
         <div>
+          <Link href={"/c"}>
           <button className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full">
             Log in
           </button>
+          </Link>
           <button className="text-dark-primary-100 text-center border border-dark-secondary px-2 py-1 ml-3 font-semibold rounded-full">
             Sign up
           </button>

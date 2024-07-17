@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import GptContext from "./gptContexts/gptContext";
+import GptContext from "./gptContexts/chatEngine";
 import Sidebar from "./components/Sidebar";
 import { FaChevronDown, FaUserNinja } from "react-icons/fa6";
 import { RiShare2Line } from "react-icons/ri";
