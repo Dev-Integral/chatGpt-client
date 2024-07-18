@@ -1,5 +1,4 @@
 "use client";
-import { FaUserNinja } from "react-icons/fa6";
 
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
@@ -10,12 +9,13 @@ import { useChatLog } from "../gptContexts/chatLog";
 import { ChatLog } from "../components/ChatLog";
 import Loading from "../components/Loading";
 import { useLoading } from "../gptContexts/loading";
+import { useCurrentEngine } from "../gptContexts/chatEngine";
 
-export default function page() {
+const page=()=> {
   const [newChatIcon, setNewChatIcon] = useState(true);
   const [chatLog] = useChatLog();
   const [isLoading] = useLoading();
-  const [currentGPTEngine, setCurrentGPTEngine] = useState("ChatGPT");
+  const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine;
   return (
     <main className="h-screen flex">
       <Sidebar
@@ -49,3 +49,4 @@ export default function page() {
     </main>
   );
 }
+export default page;
