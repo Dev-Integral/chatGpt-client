@@ -15,7 +15,7 @@ export default function Page() {
   const [newChatIcon, setNewChatIcon] = useState(true);
   const [chatLog] = useChatLog();
   const [isLoading] = useLoading();
-  const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine;
+  const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine();
   return (
     <main className="h-screen flex">
       <Sidebar
