@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatGptLogo } from "../components/ChatGptLogo";
+import { ChatGptLogo } from "./ChatGptLogo";
 import { TbBlockquote, TbSchool } from "react-icons/tb";
 import { PiLightbulb } from "react-icons/pi";
 import { RiCodeBoxLine } from "react-icons/ri";

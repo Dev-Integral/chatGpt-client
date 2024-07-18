@@ -4,7 +4,7 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
 import HomeTextArea from "../components/HomeTextArea";
-import { EmptyChat } from "./EmptyChat";
+import { EmptyChat } from "../components/EmptyChat";
 import { useChatLog } from "../gptContexts/chatLog";
 import { ChatLog } from "../components/ChatLog";
 import Loading from "../components/Loading";
