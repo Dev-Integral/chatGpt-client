@@ -7,9 +7,11 @@ import { useChatLog } from "../gptContexts/chatLog";
 import { ChatGptLogo } from "./ChatGptLogo";
 import { MdManageHistory } from "react-icons/md";
 
-export default function Sidebar({ newChatIcon, setNewChatIcon }) {
-  const [selectedChat, setSelectedChat] = useSelectedChat();
-  const [chatLog, setChatLog] = useChatLog();
+export default function Sidebar() {
+  const [newChatIcon, setNewChatIcon] = useState(true);
+
+  const [, setSelectedChat] = useSelectedChat();
+  const [, setChatLog] = useChatLog();
   const clearChat = () => {
     setChatLog([]);
   };

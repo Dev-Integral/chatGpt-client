@@ -11,8 +11,7 @@ import Loading from "../components/Loading";
 import { useLoading } from "../gptContexts/loading";
 import { useCurrentEngine } from "../gptContexts/chatEngine";
 
-const page=()=> {
-  const [newChatIcon, setNewChatIcon] = useState(true);
+const Page=()=> {
   const [chatLog] = useChatLog();
   const [isLoading] = useLoading();
   const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine;
@@ -49,4 +48,4 @@ const page=()=> {
     </main>
   );
 }
-export default page;
+export default Page;
