@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { CurrentEngineProvider } from "./gptContexts/chatEngine";
 import { SelectedChatProvider } from "./gptContexts/selectedChat";
+import { ChatLogProvider } from "./gptContexts/chatLog";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,11 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <CurrentEngineProvider>
+      <ChatLogProvider>
       <SelectedChatProvider>
         <html lang="en">
           <body>{children}</body>
         </html>
       </SelectedChatProvider>
+      </ChatLogProvider>
     </CurrentEngineProvider>
   );
 }

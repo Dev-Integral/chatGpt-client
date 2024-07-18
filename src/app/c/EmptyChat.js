@@ -8,7 +8,7 @@ export const EmptyChat = () => {
   return (
     <div className="flex flex-col px-2 items-center justify-center h-full">
       <ChatGptLogo size={47} className={"mb-14 text-dark-primary-100"} />
-      <div className="grid grid-cols-4 pb-12 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 pb-12 gap-4">
         <div className="border cursor-pointer hover:bg-dark-secondary border-dark-secondary text-dark-primary p-3 rounded-2xl h-24 w-40">
           <span className="text-dark-primary">
             <TbSchool className="mb-1" />
