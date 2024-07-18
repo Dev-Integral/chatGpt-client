@@ -12,18 +12,11 @@ import { useLoading } from "../gptContexts/loading";
 import { useCurrentEngine } from "../gptContexts/chatEngine";
 
 export default function Page() {
-  const [newChatIcon, setNewChatIcon] = useState(true);
   const [chatLog] = useChatLog();
   const [isLoading] = useLoading();
-  const [currentGPTEngine, setCurrentGPTEngine] = useCurrentEngine();
   return (
     <main className="h-screen flex">
-      <Sidebar
-        newChatIcon={newChatIcon}
-        setNewChatIcon={setNewChatIcon}
-        currentGPTEngine={currentGPTEngine}
-        setCurrentGPTEngine={setCurrentGPTEngine}
-      />
+      <Sidebar />
       <section className="md:w-full relative bg-dark-grey">
         <Navbar />
         <div className="overflow-auto h-[75%]">
@@ -37,10 +30,10 @@ export default function Page() {
                 ))}
               </div>
             )}
-            {
-            isLoading === "loading" && 
-            (
-              <Loading className={"flex items-center text-dark-primary justify-center"} />
+            {isLoading === "loading" && (
+              <Loading
+                className={"flex items-center text-dark-primary justify-center"}
+              />
             )}
           </div>
           <HomeTextArea width={"w-5/6"} />
