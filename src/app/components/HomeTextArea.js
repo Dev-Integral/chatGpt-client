@@ -3,12 +3,15 @@ import { FaArrowUp } from "react-icons/fa6";
 import { IoIosAttach } from "react-icons/io";
 import { useCurrentEngine } from "../gptContexts/chatEngine";
 import { useChatLog } from "../gptContexts/chatLog";
+import { TbPlayerStopFilled } from "react-icons/tb";
+import { useLoading } from "../gptContexts/loading";
 
 export default function HomeTextArea({ width }) {
   const [currentGPTEngine] = useCurrentEngine();
   const [chatLog, setChatLog] = useChatLog();
   const [isDisabled, setIsDisabled] = useState(true);
   const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useLoading("");
 
   useEffect(() => {
     if (prompt) {
@@ -17,19 +20,37 @@ export default function HomeTextArea({ width }) {
       setIsDisabled(true);
     }
   }, [prompt]);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt }),
-    });
+    if (prompt?.length) {
+      try {
+        setChatLog([...chatLog, { text: prompt, author: "me" }]);
+        setIsLoading("loading");
+        setPrompt("");
+        const res = await fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt }),
+        });
 
-    const data = await res.json();
-    setChatLog([...chatLog, {text: prompt, author: "me"}, {text: data.result, author: "gpt"}]);
+        const data = await res.json();
+        setChatLog([
+          ...chatLog,
+          { text: prompt, author: "me" },
+          { text: data.result, author: "gemini" },
+        ]);
+        setIsLoading("");
+      } catch (error) {
+        setChatLog([
+          ...chatLog,
+          { text: prompt, author: "me" },
+          { text: "Something went wrong", author: "gemini" },
+        ]);
+      }
+    }
   };
 
   return (
@@ -54,14 +75,19 @@ export default function HomeTextArea({ width }) {
               className="rounded-full bg-dark-primary p-2"
             >
               <span className="text-dark-secondary">
-                <FaArrowUp />
+                {isLoading === "loading" ? (
+                  <TbPlayerStopFilled />
+                ) : (
+                  <FaArrowUp />
+                )}
               </span>
             </button>
           </form>
         </div>
       </div>
       <p className="text-center mt-1 text-[12px] mb-2 text-dark-primary ">
-        {currentGPTEngine} Gemini may display inaccurate info, including about people, so double-check its responses. Your privacy & Gemini Apps
+        {currentGPTEngine} may display inaccurate info, including about people,
+        so double-check its responses. Your privacy & Gemini Apps
       </p>
     </div>
   );

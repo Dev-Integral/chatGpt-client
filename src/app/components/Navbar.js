@@ -3,14 +3,16 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { FaChevronDown, FaPenToSquare, FaUserNinja } from "react-icons/fa6";
 import { RiShare2Line } from "react-icons/ri";
+import { useChatLog } from "../gptContexts/chatLog";
 
 export const Navbar = () => {
   const path = usePathname();
+  const [setChatLog] = useChatLog();
   return (
     <nav className="flex justify-between items-center p-3">
       <div className="flex items-center gap-2 text-dark-primary">
         {path === "/" && (
-          <FaPenToSquare size={18} className="hover:text-dark-primary-100 " />
+          <FaPenToSquare onClick={()=>setChatLog([])} size={18} className="hover:text-dark-primary-100 " />
         )}
         <span className="font-semibold text-lg">ChatGPT {path === "/" && 3.5}</span>
         <FaChevronDown className="text-sm" />

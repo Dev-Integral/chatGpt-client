@@ -3,6 +3,7 @@ import "./globals.css";
 import { CurrentEngineProvider } from "./gptContexts/chatEngine";
 import { SelectedChatProvider } from "./gptContexts/selectedChat";
 import { ChatLogProvider } from "./gptContexts/chatLog";
+import { ChatLoading } from "./gptContexts/loading";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,11 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <CurrentEngineProvider>
       <ChatLogProvider>
-      <SelectedChatProvider>
-        <html lang="en">
-          <body>{children}</body>
-        </html>
-      </SelectedChatProvider>
+        <ChatLoading>
+          <SelectedChatProvider>
+            <html lang="en">
+              <body>{children}</body>
+            </html>
+          </SelectedChatProvider>
+        </ChatLoading>
       </ChatLogProvider>
     </CurrentEngineProvider>
   );

@@ -6,14 +6,15 @@ import Sidebar from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
 import HomeTextArea from "../components/HomeTextArea";
 import { EmptyChat } from "./EmptyChat";
-import { useSelectedChat } from "../gptContexts/selectedChat";
-import { ChatGptLogo } from "../components/ChatGptLogo";
 import { useChatLog } from "../gptContexts/chatLog";
 import { ChatLog } from "../components/ChatLog";
+import Loading from "../components/Loading";
+import { useLoading } from "../gptContexts/loading";
 
 export default function page() {
   const [newChatIcon, setNewChatIcon] = useState(true);
   const [chatLog] = useChatLog();
+  const [isLoading] = useLoading();
   const [currentGPTEngine, setCurrentGPTEngine] = useState("ChatGPT");
   return (
     <main className="h-screen flex">
@@ -35,6 +36,11 @@ export default function page() {
                   <ChatLog log={log} key={key} />
                 ))}
               </div>
+            )}
+            {
+            isLoading === "loading" && 
+            (
+              <Loading className={"flex items-center text-dark-primary justify-center"} />
             )}
           </div>
           <HomeTextArea width={"w-5/6"} />

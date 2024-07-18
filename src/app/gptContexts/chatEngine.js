@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 const Context = createContext();
 
 export function CurrentEngineProvider({ children }) {
-  const [currentGPTEngine, setCurrentGPTEngine] = useState("ChatGPT");
+  const [currentGPTEngine, setCurrentGPTEngine] = useState("Gemini");
   return (
     <Context.Provider value={[currentGPTEngine, setCurrentGPTEngine]}>
       {children}

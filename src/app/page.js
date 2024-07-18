@@ -1,9 +1,5 @@
 "use client";
-import { FaChevronDown, FaPenToSquare, FaUserNinja } from "react-icons/fa6";
-import { RiShare2Line } from "react-icons/ri";
-import { FaArrowUp } from "react-icons/fa6";
-import { IoIosAttach } from "react-icons/io";
-import { useState } from "react";
+
 import Head from "next/head";
 import HomeTextArea from "./components/HomeTextArea";
 import { Navbar } from "./components/Navbar";
@@ -23,7 +19,7 @@ export default function Home() {
         <Navbar />
         <div className="w-4/6 mx-auto flex flex-col items-center justify-end center h-[80%] ">
           <div className="w-full flex justify-center items-center text-2xl text-dark-primary-100">
-            <ChatGptLogo size={55} className={"rounded-full p-1 mb-14"} />
+            <ChatGptLogo size={55} className={"rounded-full border border-dark-secondary p-2 mb-14"} />
           </div>
           <div className="grid grid-cols-2 gap-2 w-full pl-3 pr-3 pb-12">
             <div
