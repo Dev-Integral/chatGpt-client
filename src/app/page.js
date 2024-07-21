@@ -3,7 +3,7 @@
 import Head from "next/head";
 import HomeTextArea from "./components/HomeTextArea";
 import { Navbar } from "./components/Navbar";
-import { ChatGptLogo } from "./components/ChatGptLogo";
+import { ChatGptLogo } from "./components/ChatgptLogo";
 
 export default function Home() {
   <Head>

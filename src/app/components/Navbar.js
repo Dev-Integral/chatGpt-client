@@ -24,7 +24,7 @@ export const Navbar = () => {
         </div>
       ) : (
         <div>
-          <Link href={"/c"}>
+          <Link href={"/chat"}>
           <button className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full">
             Log in
           </button>

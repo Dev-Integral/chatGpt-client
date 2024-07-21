@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatGptLogo } from "./ChatGptLogo";
+import { GeminiLogo } from "./GeminiLogo";
 import Markdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
 
@@ -17,7 +17,7 @@ export const ChatLog = ({ log, key }) => {
         } rounded-3xl p-4`}
       >
         {log.author !== "me" && (
-          <ChatGptLogo
+          <GeminiLogo
             size={35}
             className={"p-2 rounded-full border border-dark-secondary"}
           />
