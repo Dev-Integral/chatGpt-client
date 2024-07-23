@@ -51,8 +51,7 @@ export default function Home() {
              rounded-2xl"
             >
               <span className="text-white font-semibold">Write a thank-you note</span>
-              <br />
-              To my interviewer
+              <p>To my interviewer</p>
             </div>
           </div>
         </div>
