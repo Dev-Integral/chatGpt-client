@@ -5,6 +5,7 @@ import { FaChevronDown, FaPenToSquare, FaUserNinja } from "react-icons/fa6";
 import { RiShare2Line } from "react-icons/ri";
 import { useChatLog } from "../gptContexts/chatLog";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
 
 export const Navbar = () => {
   const { user } = useUser();
@@ -35,7 +36,7 @@ export const Navbar = () => {
           </Link>
           <RiShare2Line size={25} className="cursor-pointer" />
           {user?.picture ? (
-            <img
+            <Image
               className="rounded-full w-8"
               src={user?.picture}
               alt={user?.nickname ?? "user"}
