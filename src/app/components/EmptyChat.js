@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatGptLogo } from "./ChatgptLogo";
+import { ChatGptLogo } from "./ChatGptLogo";
 import { useChatLog } from "../gptContexts/chatLog";
 import { useLoading } from "../gptContexts/loading";
 import SuggestedLoggedInPrompts from "./SuggestedLoggedInPrompts";

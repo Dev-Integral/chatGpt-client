@@ -4,7 +4,7 @@ import { LuPanelLeftClose } from "react-icons/lu";
 import { FaPenToSquare } from "react-icons/fa6";
 import { useSelectedChat } from "../gptContexts/selectedChat";
 import { useChatLog } from "../gptContexts/chatLog";
-import { ChatGptLogo } from "./ChatgptLogo";
+import { ChatGptLogo } from "./ChatGptLogo";
 import { MdManageHistory } from "react-icons/md";
 
 export default function Sidebar() {
