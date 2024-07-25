@@ -4,15 +4,24 @@ import Head from "next/head";
 import HomeTextArea from "./components/HomeTextArea";
 import { Navbar } from "./components/Navbar";
 import { ChatGptLogo } from "./components/ChatgptLogo";
+import { useEffect } from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { user } = useUser();
+  const router = useRouter();
   <Head>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </Head>;
-
+useEffect(()=>{
+if(user?.name){
+  router.push("/chat")
+}
+}, [user])
   return (
     <main className="h-screen flex">
       <section className="w-4/6 md:w-full mx-auto relative bg-dark-grey pl-2 pr-2">

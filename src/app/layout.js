@@ -1,10 +1,9 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { CurrentEngineProvider } from "./gptContexts/chatEngine";
 import { SelectedChatProvider } from "./gptContexts/selectedChat";
 import { ChatLogProvider } from "./gptContexts/chatLog";
 import { ChatLoading } from "./gptContexts/loading";
-import { Auth0Provider } from "@auth0/auth0-ne";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,24 +12,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <
-      domain="dev-f81q46epvoek8tzj.us.auth0.com"
-      clientId="x9QR5YdxqltV247l3mGi9VTnPrEGn9Ln"
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <CurrentEngineProvider>
-        <ChatLogProvider>
-          <ChatLoading>
-            <SelectedChatProvider>
-              <html lang="en">
-                <body>{children}</body>
-              </html>
-            </SelectedChatProvider>
-          </ChatLoading>
-        </ChatLogProvider>
-      </CurrentEngineProvider>
-    </Auth0Provider>
+    <html lang="en">
+      <UserProvider>
+        <CurrentEngineProvider>
+          <ChatLogProvider>
+            <ChatLoading>
+              <SelectedChatProvider>
+                <body>
+                  {children}
+                </body>
+              </SelectedChatProvider>
+            </ChatLoading>
+          </ChatLogProvider>
+        </CurrentEngineProvider>
+      </UserProvider>
+    </html>
   );
 }

@@ -87,7 +87,7 @@ export default function HomeTextArea({ width }) {
       </div>
       <p className="text-center mt-1 text-[12px] mb-2 text-dark-primary ">
         {currentGPTEngine} may display inaccurate info, including about people,
-        so double-check its responses. Your privacy & Gemini Apps
+        so double-check its responses.
       </p>
     </div>
   );

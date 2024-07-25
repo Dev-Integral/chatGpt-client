@@ -8,8 +8,9 @@ import { useChatLog } from "../gptContexts/chatLog";
 import { ChatLog } from "../components/ChatLog";
 import Loading from "../components/Loading";
 import { useLoading } from "../gptContexts/loading";
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-export default function Page() {
+export default withPageAuthRequired(function Page() {
   const [chatLog] = useChatLog();
   const [isLoading] = useLoading();
   return (
@@ -39,4 +40,4 @@ export default function Page() {
       </section>
     </main>
   );
-}
+})
