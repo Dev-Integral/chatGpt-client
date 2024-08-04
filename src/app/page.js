@@ -18,10 +18,11 @@ export default function Home() {
     />
   </Head>;
 useEffect(()=>{
+  console.log(user)
 if(user?.name){
   router.push("/chat")
 }
-}, [user])
+}, [user?.name])
   return (
     <main className="h-screen flex">
       <section className="w-4/6 md:w-full mx-auto relative bg-dark-grey pl-2 pr-2">

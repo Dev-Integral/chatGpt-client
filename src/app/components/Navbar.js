@@ -28,9 +28,10 @@ export const Navbar = () => {
       </div>
       {path !== "/" ? (
         <div className="flex items-center gap-4 text-dark-primary">
-          <Link href={"/api/auth/logout"}>
+          <Link href={`${process.env.NEXT_PUBLIC_ISSUER_BASE_URL}/oidc/logout?clientId=${process.env.NEXT_PUBLIC_CLIENT_ID}&logout_hint=${user.sid}`}>
             <button className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full">
               Log out
+              {console.log(process, 'sdfghj')}
             </button>
           </Link>
           <RiShare2Line size={25} className="cursor-pointer" />
