@@ -5,11 +5,33 @@ import { FaChevronDown, FaPenToSquare, FaUserNinja } from "react-icons/fa6";
 import { RiShare2Line } from "react-icons/ri";
 import { useChatLog } from "../gptContexts/chatLog";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import axios from "axios";
 
 export const Navbar = () => {
   const { user } = useUser();
 
   const path = usePathname();
+  const handleLogout = async() => {
+    console.log("here");
+    await axios.get(
+      "https://dev-f81q46epvoek8tzj.us.auth0.com/v2/logout?client_id=x9QR5YdxqltV247l3mGi9VTnPrEGn9Ln&returnTo=http://localhost:3000/char"
+    )
+      .then((response) => {
+        if (!response.ok) {
+          console.log(response);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+      });
+  };
   const [setChatLog] = useChatLog();
   return (
     <nav className="flex justify-between items-center p-3">
@@ -28,12 +50,13 @@ export const Navbar = () => {
       </div>
       {path !== "/" ? (
         <div className="flex items-center gap-4 text-dark-primary">
-          <Link href={`${process.env.NEXT_PUBLIC_ISSUER_BASE_URL}/oidc/logout?clientId=${process.env.NEXT_PUBLIC_CLIENT_ID}&logout_hint=${user.sid}`}>
-            <button className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full">
-              Log out
-              {console.log(process, 'sdfghj')}
-            </button>
-          </Link>
+          <button
+            className="bg-white text-center text-dark-secondary px-2 py-1 font-semibold rounded-full"
+            onClick={handleLogout}
+          >
+            Log out
+          </button>
+
           <RiShare2Line size={25} className="cursor-pointer" />
           {user?.picture ? (
             <img
